@@ -1,0 +1,34 @@
+{
+  "name": "workshop-cypress",
+  "version": "1.0.0",
+  "description": "This is a Workshop about Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasB2/cypress-workshop.git"
+  },
+  "keywords": [
+    "ui-testing",
+    "dojo",
+    "practice",
+    "cypress"
+  ],
+  "author": "[Nicolas Biojo Bermeo] <nikobiober@gmail.com> (nicolasB2)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NicolasB2/cypress-workshop/issues"
+  },
+  "homepage": "https://github.com/NicolasB2/cypress-workshop#readme",
+  "dependencies": {
+    "@cypress/webpack-preprocessor": "^5.5.0",
+    "cypress": "^6.4.0",
+    "ts-loader": "^8.0.14",
+    "webpack": "^5.20.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
