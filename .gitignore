@@ -1,6 +1,5 @@
 ### Ignore for NodeJs
 node_modules
-package-lock.json
 
 ### Ignore for cypress
 cypress/videos
