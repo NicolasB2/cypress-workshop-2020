@@ -11,35 +11,55 @@ import {
   ShippingStepPage
 } from '../page';
 
-describe('Buy a t-shirt', () => {
+describe('Should open the shopping page', () => {
 
-  const menuContentPage: MenuContentPage = new MenuContentPage();
-  const productListPage: ProductListPage = new ProductListPage;
-  const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
-  const summaryStepPage: SummaryStepPage = new SummaryStepPage();
-  const signInStepPage: SignInStepPage = new SignInStepPage();
-  const addressStepPage: AddressStepPage = new AddressStepPage();
-  const shippingStepPage: ShippingStepPage = new ShippingStepPage();
-  const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
-  const paymentStepPage: PaymentStepPage = new PaymentStepPage();
-  const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
-
-  it('Then should be bought a t-shirt', () => {
-
+  before(() => {
     cy.visit('http://automationpractice.com/');
+  });
 
-    menuContentPage.goToTShirtMenu();
-    productListPage.selectProduct('Faded Short Sleeve T-shirts');
+  describe('and select the t-shirt to buy', () => {
+    before(() => {
+      const menuContentPage: MenuContentPage = new MenuContentPage();
+      const productListPage: ProductListPage = new ProductListPage;
+      const productAddedModalPage: ProductAddedModalPage = new ProductAddedModalPage();
+      const summaryStepPage: SummaryStepPage = new SummaryStepPage();
 
-    productAddedModalPage.proceedToCheckout();
-    summaryStepPage.proceedToCheckout();
-    signInStepPage.login('testCypress@gmail.com', 'WorkshopProtractor');
+      menuContentPage.goToTShirtMenu();
+      productListPage.selectProduct('Faded Short Sleeve T-shirts');
+      productAddedModalPage.proceedToCheckout();
+      summaryStepPage.proceedToCheckout();
 
-    addressStepPage.proceedToCheckout();
-    shippingStepPage.aceptTermsOfService();
-    paymentStepPage.payByBankWire();
-    bankPaymentPage.confirmOrder();
+      describe('and login in the page', () => {
+        before(() => {
+          const signInStepPage: SignInStepPage = new SignInStepPage();
+          signInStepPage.login('testCypress@gmail.com', 'WorkshopProtractor');
 
-    orderSummaryPage.getOrderTitle().contains('Your order on My Store is complete.');
+          describe('and select the default address', () => {
+            before(() => {
+              const addressStepPage: AddressStepPage = new AddressStepPage();
+              const shippingStepPage: ShippingStepPage = new ShippingStepPage();
+
+              addressStepPage.proceedToCheckout();
+              shippingStepPage.aceptTermsOfService();
+
+              describe('and ake the bank payment', () => {
+                before(() => {
+                  const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
+                  const paymentStepPage: PaymentStepPage = new PaymentStepPage();
+
+                  paymentStepPage.payByBankWire();
+                  bankPaymentPage.confirmOrder();
+                });
+
+                it('Then should be bought a t-shirt', () => {
+                  const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
+                  orderSummaryPage.getOrderTitle().should('have.text', 'Your order on My Store is complete.');
+                });
+              });
+            });
+          });
+        });
+      });
+    });
   });
 });
