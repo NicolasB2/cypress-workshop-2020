@@ -40,6 +40,6 @@ describe('Buy a t-shirt', () => {
     paymentStepPage.payByBankWire();
     bankPaymentPage.confirmOrder();
 
-    orderSummaryPage.getOrderTitle().should('have.text', 'Your order on My Store is complete.');
+    orderSummaryPage.getOrderTitle().contains('Your order on My Store is complete.');
   });
 });

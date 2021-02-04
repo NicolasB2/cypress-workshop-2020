@@ -7,7 +7,7 @@ export class SignInStepPage{
   constructor() {
     this.emailSelector = '#email';
     this.passwordSelector = '#passwd';
-    this.siginButtonSelector = '#SubmitLogin > span';
+    this.siginButtonSelector = '#SubmitLogin';
   }
 
   public login(email:string, password:string) {

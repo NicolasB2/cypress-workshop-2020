@@ -3,7 +3,7 @@ export class AddressStepPage {
   private proceedToCheckoutSelector: string;
 
   constructor() {
-    this.proceedToCheckoutSelector = '.cart_navigation > .button > span';
+    this.proceedToCheckoutSelector = '[name="processAddress"]';
   }
 
   public proceedToCheckout() {
