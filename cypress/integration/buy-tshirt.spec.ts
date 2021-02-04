@@ -11,13 +11,13 @@ import {
   ShippingStepPage
 } from '../page';
 
-describe('Should open the shopping page', () => {
+describe('Given the shopping page', () => {
 
   before(() => {
     cy.visit('http://automationpractice.com/');
   });
 
-  describe('and select the t-shirt to buy', () => {
+  describe('when buy a T-shirt', () => {
     before(() => {
       const menuContentPage: MenuContentPage = new MenuContentPage();
       const productListPage: ProductListPage = new ProductListPage;
@@ -42,7 +42,7 @@ describe('Should open the shopping page', () => {
               addressStepPage.proceedToCheckout();
               shippingStepPage.aceptTermsOfService();
 
-              describe('and ake the bank payment', () => {
+              describe('and make the bank payment', () => {
                 before(() => {
                   const bankPaymentPage: BankPaymentPage = new BankPaymentPage();
                   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
