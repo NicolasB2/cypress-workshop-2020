@@ -3,7 +3,7 @@ export class PaymentStepPage{
   private payByBankWireSelector: string;
 
   constructor() {
-    this.payByBankWireSelector = '#HOOK_PAYMENT > div:nth-child(1) > div > p > a';
+    this.payByBankWireSelector = '[title="Pay by bank wire"]';
   }
   public payByBankWire() {
     cy.get(this.payByBankWireSelector).click();

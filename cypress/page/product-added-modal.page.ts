@@ -3,7 +3,7 @@ export class ProductAddedModalPage{
   private proceedToCheckoutSelector: string;
 
   constructor () {
-    this.proceedToCheckoutSelector = '.button-container > .button-medium > span';
+    this.proceedToCheckoutSelector = 'a[title="Proceed to checkout"]';
   }
 
   public proceedToCheckout() {

@@ -2,7 +2,7 @@ export class OrderSummaryPage {
   private confirmationLabelSelector: string;
 
   constructor() {
-    this.confirmationLabelSelector = '#center_column .dark';
+    this.confirmationLabelSelector = '.cheque-indent';
   }
 
   public getOrderTitle(): Cypress.Chainable {

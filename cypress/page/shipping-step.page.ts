@@ -5,7 +5,7 @@ export class ShippingStepPage{
 
   constructor() {
     this.termsOfServiceCheckBoxSelector = '#cgv';
-    this.proceedToCheckoutSelector = '.cart_navigation > .button > span';
+    this.proceedToCheckoutSelector = '[name="processCarrier"]';
   }
   public aceptTermsOfService() {
     cy.get(this.termsOfServiceCheckBoxSelector).check();

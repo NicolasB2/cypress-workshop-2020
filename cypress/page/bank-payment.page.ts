@@ -3,7 +3,7 @@ export class BankPaymentPage{
   private confirmOrderSelector: string;
 
   constructor() {
-    this.confirmOrderSelector = '#cart_navigation > .button > span';
+    this.confirmOrderSelector = '#cart_navigation > .button';
   }
 
   public confirmOrder() {
