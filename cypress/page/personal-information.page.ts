@@ -1,13 +1,9 @@
-import { createThis } from "typescript";
-
 export class PersonalInformation {
 
   private firstNameField: string;
   private lastNameField: string;
   private sendButton: string;
   private pageTitle: string;
-
-
   private continentCombobox: string;
   private commandsListbox: string;
 
@@ -21,10 +17,10 @@ export class PersonalInformation {
     this.sendButton = '[width="65%"] > button';
   }
 
-  fillForm(userData:any){
+  fillForm(userData:any) {
     cy.get(this.firstNameField).type(userData.firstName);
     cy.get(this.lastNameField).type(userData.lastName);
-    this.getSexOption(userData.sex).check()
+    this.getSexOption(userData.sex).check();
     this.getExperienceOption(userData.experience).check();
     this.getContinentsOption(userData.continent);
 

@@ -1,4 +1,4 @@
-import { PersonalInformation } from '../page'
+import { PersonalInformation } from '../page';
 
 describe('Given the tutorial  page', () => {
 
