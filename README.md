@@ -1,1 +1,1 @@
-# cypress-workshop
+# cypress-workshop-2020
